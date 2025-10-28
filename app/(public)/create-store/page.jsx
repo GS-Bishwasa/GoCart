@@ -37,7 +37,7 @@ export default function CreateStore() {
 
     const fetchSellerStatus = async () => {
         // Logic to check if the store is already submitted
-        const token = await getToken()
+        const token = await getToken({ skipCache: true })
         try {
 
             const { data } = await axios.get('/api/store/create', { headers: { Authorization: `Bearer ${token}` } })
@@ -78,7 +78,7 @@ export default function CreateStore() {
             return toast("Please login to continue")
         }
         try {
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
             // console.log(token)
             const formData = new FormData()
             formData.append("name", storeInfo.name)

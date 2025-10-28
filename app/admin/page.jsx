@@ -32,7 +32,7 @@ export default function AdminDashboard() {
 
     const fetchDashboardData = async () => {
         try {
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
             const { data } = await axios.get("/api/admin/dashboard", { headers: { Authorization: `Bearer ${token}` } })
 
             setDashboardData(data.dashboardData)

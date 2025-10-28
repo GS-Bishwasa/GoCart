@@ -26,7 +26,7 @@ export default function AdminCoupons() {
     const fetchCoupons = async () => {
         try {
 
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
             const { data } = await axios.get("/api/admin/coupon", { headers: { Authorization: `Bearer ${token}` } })
             setCoupons(data.coupons)
         } catch (error) {
@@ -38,7 +38,7 @@ export default function AdminCoupons() {
         e.preventDefault()
         try {
 
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
 
             newCoupon.discount = Number(newCoupon.discount)
             newCoupon.expiresAt = new Date(newCoupon.expiresAt)
@@ -62,7 +62,7 @@ export default function AdminCoupons() {
             if (!confirm) {
                 return
             }
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
             await axios.delete(`/api/admin/coupon?code=${code}`, { headers: { Authorization: `Bearer ${token}` } })
             await fetchCoupons();
             toast.success("coupon deleted successfully")

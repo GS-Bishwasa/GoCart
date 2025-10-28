@@ -1,29 +1,27 @@
 import prisma from "@/lib/prisma";
 import authSeller from "@/middlewares/authSeller";
-import { getAuth } from "@clerk/nextjs/server";
+import { auth, getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-
-
-
 
 // toggle stock of a product
 export async function POST(request) {
     try {
-
-        const { userId } = getAuth(request)
+        // const { userId } =  await auth()
+        const {userId} =  getAuth(request)  // Changed: get both values
+        console.log("request is ", request)
+        console.log('User ID from auth:', userId); // Debug log
         const { productId } = await request.json()
-
+        
         if (!productId) {
             return NextResponse.json({ error: "missing details: productId" }, { status: 400 })
         }
-
-
-        const { storeId } = await authSeller(userId)
-
-        if (!storeId) {
+        
+        const storeId = await authSeller(userId)  // Changed: get both values
+        
+        if (!storeId) {  // Changed: check both
             return NextResponse.json({ error: "not authorized" }, { status: 401 })
         }
-
+        
         // check if product exists
         const product = await prisma.product.findFirst({
             where: {
@@ -31,11 +29,11 @@ export async function POST(request) {
                 storeId
             },
         })
-
+        
         if (!product) {
             return NextResponse.json({ error: "product not found" }, { status: 404 })
         }
-
+        
         await prisma.product.update({
             where: {
                 id: productId,
@@ -44,8 +42,8 @@ export async function POST(request) {
                 inStock: !product.inStock,
             }
         })
-
-        return NextResponse.json({ status: "Product stock updated successfully" })
+        
+        return NextResponse.json({ message: "Product stock updated successfully" })  // Changed: use "message" not "status"
     } catch (error) {
         console.error(error)
         return NextResponse.json({ error: error.code || error.message }, { status: 400 })

@@ -18,7 +18,7 @@ export default function AdminApprove() {
     const fetchStores = async () => {
         try {
 
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
             const { data } = await axios.get("/api/admin/approve-store", { headers: { Authorization: `Bearer ${token}` } })
             setStores(data.stores)
 
@@ -31,7 +31,7 @@ export default function AdminApprove() {
     const handleApprove = async ({ storeId, status }) => {
         try {
 
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
             const { data } = await axios.post("/api/admin/approve-store", { storeId, status }, { headers: { Authorization: `Bearer ${token}` } })
 
             toast.success(data.message)

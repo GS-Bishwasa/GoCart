@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import authSeller from "@/middlewares/authSeller";
-import { getAuth } from "@clerk/nextjs/server";
+import { auth, getAuth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 
@@ -9,7 +9,7 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     try {
 
-        const { userId } = getAuth(request)
+        const { userId } = await auth(request)
         const isSeller = await authSeller(userId)
 
         if (!isSeller) {
@@ -21,7 +21,7 @@ export async function GET(request) {
                 userId,
             },
         })
-        return NextResponse.json(isSeller, storeInfo)
+        return NextResponse.json({isSeller, storeInfo})
 
     } catch (error) {
         console.error(error)

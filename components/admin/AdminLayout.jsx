@@ -18,7 +18,7 @@ const AdminLayout = ({ children }) => {
 
     const fetchIsAdmin = async () => {
         try {
-            const token = await getToken()
+            const token = await getToken({ skipCache: true })
             const { data } = await axios.get("/api/admin/is-admin", { headers: { Authorization: `Bearer ${token}` } })
 
             setIsAdmin(data.isAdmin)

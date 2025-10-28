@@ -35,7 +35,7 @@ export async function GET(request) {
             return NextResponse.json({ error: "store not found" }, { status: 400 });
         }
 
-        return NextResponse.json(store);
+        return NextResponse.json({store});
 
     } catch (error) {
         console.error(error);
