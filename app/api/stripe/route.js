@@ -50,22 +50,22 @@ export async function POST(request) {
         }
 
 
-        switch (event) {
+        switch (event.type) {
             case 'payment_intent.succeeded': {
-                await handlePaymentIntent(event.data.object.id, true)
+                await handlePaymentIntent(event.data.object.id, true);
                 break;
             }
 
             case 'payment_intent.canceled': {
-                await handlePaymentIntent(event.data.object.id, false)
-                break
+                await handlePaymentIntent(event.data.object.id, false);
+                break;
             }
 
-
             default:
-                console.log("Unhandled event type:", event.type)
+                console.log("Unhandled event type:", event.type);
                 break;
         }
+
 
         return NextResponse.json({ received: true })
 
