@@ -1,85 +1,111 @@
-<div align="center">
-  <h1><img src="https://gocartshop.in/favicon.ico" width="20" height="20" alt="GoCart Favicon">
-   GoCart</h1>
-  <p>
-    An open-source multi-vendor e-commerce platform built with Next.js and Tailwind CSS.
-  </p>
-  <p>
-    <a href="https://github.com/GreatStackDev/goCart/blob/main/LICENSE.md"><img src="https://img.shields.io/github/license/GreatStackDev/goCart?style=for-the-badge" alt="License"></a>
-    <a href="https://github.com/GreatStackDev/goCart/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge" alt="PRs Welcome"></a>
-    <a href="https://github.com/GreatStackDev/goCart/issues"><img src="https://img.shields.io/github/issues/GreatStackDev/goCart?style=for-the-badge" alt="GitHub issues"></a>
-  </p>
-</div>
+# 🛒 GoCart — Multi-Vendor E-Commerce Platform
+
+**Live Site:** [https://go-cart-umber.vercel.app](https://go-cart-umber.vercel.app)  
+
+GoCart is a **full-stack, multi-vendor e-commerce platform** built with **Next.js**.  
+It allows users to **create their own online store**, manage products, track orders, and receive payments securely through Stripe.  
+The platform also includes a **powerful admin panel** to manage all vendors, stores, and users.
 
 ---
 
-## 📖 Table of Contents
+## 🚀 Key Features
 
-- [✨ Features](#-features)
-- [🛠️ Tech Stack](#-tech-stack)
-- [🚀 Getting Started](#-getting-started)
-- [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
-
----
-
-## Features
-
-- **Multi-Vendor Architecture:** Allows multiple vendors to register, manage their own products, and sell on a single platform.
-- **Customer-Facing Storefront:** A beautiful and responsive user interface for customers to browse and purchase products.
-- **Vendor Dashboards:** Dedicated dashboards for vendors to manage products, view sales analytics, and track orders.
-- **Admin Panel:** A comprehensive dashboard for platform administrators to oversee vendors, products, and commissions.
-
-## 🛠️ Tech Stack <a name="-tech-stack"></a>
-
-- **Framework:** Next.js
-- **Styling:** Tailwind CSS
-- **UI Components:** Lucide React for icons
-- **State Management:** Redux Toolkit
-
-## 🚀 Getting Started <a name="-getting-started"></a>
-
-First, install the dependencies. We recommend using `npm` for this project.
-
-```bash
-npm install
-```
-
-Then, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/(public)/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Outfit](https://vercel.com/font), a new font family for Vercel.
+- 🏬 **Multi-Vendor System:** Anyone can create their personal store and start selling online.  
+- 💳 **Stripe Payment Integration:** Secure and reliable online transactions.  
+- 🧑‍💼 **Admin Dashboard:** Manage all stores, users, and products from a single place.  
+- 📦 **Store Management:** Add, edit, delete, and track products easily.  
+- 📊 **Sales Analytics:** Visual insights using interactive charts (Recharts).  
+- 🔐 **Authentication:** Seamless login and signup via **Clerk**.  
+- ☁️ **Image Uploads:** Fast image optimization with **ImageKit**.  
+- 🧠 **AI Integration:** Uses **OpenAI API** for smart features like product name suggestions or descriptions.  
+- ⚡ **Serverless & Scalable:** Deployed on **Vercel** with a Neon PostgreSQL serverless database.  
+- 🎨 **Modern UI:** Built with Tailwind CSS for responsive, minimal, and modern design.
 
 ---
 
-## 🤝 Contributing <a name="-contributing"></a>
+## 🌐 Live Pages
 
-We welcome contributions! Please see our [CONTRIBUTING.md](./CONTRIBUTING.md) for more details on how to get started.
+| Page | Description | URL |
+|------|--------------|-----|
+| 🏠 **Homepage** | Main site landing page | [https://go-cart-umber.vercel.app](https://go-cart-umber.vercel.app) |
+| 🛍️ **Create Store** | Create your personal store | [https://go-cart-umber.vercel.app/create-store](https://go-cart-umber.vercel.app/create-store) |
+| 🏪 **Store Dashboard** | Manage your store products | [https://go-cart-umber.vercel.app/store](https://go-cart-umber.vercel.app/store) |
+| ⚙️ **Admin Panel** | Manage all users, stores, and sales (restricted) | [https://go-cart-umber.vercel.app/admin](https://go-cart-umber.vercel.app/admin) |
 
 ---
 
-## 📜 License <a name="-license"></a>
+## 🧩 Tech Stack
 
-This project is licensed under the MIT License. See the [LICENSE.md](./LICENSE.md) file for details.
+| Category | Technology |
+|-----------|-------------|
+| **Frontend** | Next.js 15, React 19, Tailwind CSS 4 |
+| **Backend** | Next.js API Routes, Prisma ORM |
+| **Database** | Neon (PostgreSQL Serverless) |
+| **Authentication** | Clerk |
+| **Payments** | Stripe |
+| **Image Management** | ImageKit |
+| **State Management** | Redux Toolkit |
+| **Data Visualization** | Recharts |
+| **Notifications** | React Hot Toast |
+| **Deployment** | Vercel |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ Dependencies Explanation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🧱 Core Frameworks
+- **next:** React-based framework for full-stack web apps.
+- **react / react-dom:** Core React libraries for UI rendering.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🪄 Styling
+- **tailwindcss:** Utility-first CSS framework for rapid UI development.
+- **@tailwindcss/postcss:** Tailwind plugin for PostCSS integration.
+
+### 🔐 Authentication
+- **@clerk/nextjs:** Authentication and user management solution integrated with Next.js.
+
+### 💾 Database & ORM
+- **@neondatabase/serverless:** Neon serverless PostgreSQL driver.
+- **@prisma/client:** Prisma ORM client for database operations.
+- **@prisma/adapter-neon:** Connects Prisma with Neon database.
+- **prisma:** Prisma CLI for schema generation and migrations.
+
+### ⚡ API & Backend Tools
+- **axios:** Promise-based HTTP client for API requests.
+- **inngest:** Event-driven background jobs and workflows.
+- **ws / @types/ws:** WebSocket support for real-time features.
+- **openai:** For AI-powered features (like product description generation).
+
+### 💳 Payments
+- **stripe:** Integration for handling secure payments.
+
+### 🖼️ Media
+- **imagekit:** Handles image uploading, compression, and CDN optimization.
+
+### 🗓️ Utilities & Charts
+- **date-fns:** Utility library for handling and formatting dates.
+- **recharts:** Charting library used for displaying analytics.
+- **lucide-react:** Beautiful icon library for UI icons.
+
+### 🔥 State & UI Feedback
+- **@reduxjs/toolkit / react-redux:** For global state management across the app.
+- **react-hot-toast:** Displays user-friendly toast notifications.
+
+---
+
+## 🛠️ Environment Variables
+
+Create a `.env` file in the root of your project and add the following:
+
+```env
+DATABASE_URL="your_neon_postgres_url"
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="your_clerk_public_key"
+CLERK_SECRET_KEY="your_clerk_secret_key"
+STRIPE_SECRET_KEY="your_stripe_secret_key"
+STRIPE_WEBHOOK_SECRET="your_stripe_webhook_secret"
+IMAGEKIT_PUBLIC_KEY="your_imagekit_public_key"
+IMAGEKIT_PRIVATE_KEY="your_imagekit_private_key"
+IMAGEKIT_URL_ENDPOINT="your_imagekit_endpoint"
+OPENAI_API_KEY="your_openai_api_key"
+OPENAI_BASE_URL="your_openai_base_url"
+OPENAI_MODEL="gpt-4o-mini"
